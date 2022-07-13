@@ -52,7 +52,7 @@ namespace rapid_auth_example_forms
 
             string key = new_license.Text;
             string response = rapid_auth_dll.rapid_auth.redeem_license_key(user.username, user.password, key);
-
+            
             JObject response_json = JObject.Parse(response);
 
             new_license_class.status = (string)response_json.SelectToken("['status']");

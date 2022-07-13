@@ -31,7 +31,8 @@ namespace rapid_auth_example_forms
 
         private void login_Load(object sender, EventArgs e)
         {
-            rapid_auth_dll.rapid_auth.API_KEY = "API KEY";
+            rapid_auth_dll.rapid_auth.API_KEY = "YOUR API KEY";
+            rapid_auth_dll.rapid_auth.OPENSSL_KEY = "YOUR OPEN SSL KEY";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -47,7 +48,6 @@ namespace rapid_auth_example_forms
             string password = password_textbox.Text;
 
             string response = rapid_auth_dll.rapid_auth.sign_in(username, password);
-
             JObject response_json = JObject.Parse(response);
 
             response_class.Status = (string)response_json.SelectToken("['status']");
